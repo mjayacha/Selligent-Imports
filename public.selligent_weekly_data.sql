@@ -62,9 +62,9 @@ when trim(campaign) LIKE 'Account_NoPurchase' then 'Welcome Email'
 when trim(campaign) LIKE 'Guest_Checkout_Final' then 'Welcome Email'
 when trim(campaign) LIKE 'Checkout_Final' then 'Welcome Email'
 ---Added on 4/23/2020 ----
-when trim(campaign) LIKE '%ActiveCon' then 'Promo (1)'
-when trim(campaign) LIKE '%ActivePro' then 'Promo (1)'
-when trim(campaign) LIKE '%SuperActivePro' then 'Promo (1)'
+when trim(campaign) LIKE '%ActiveCon' then 'Promo'
+when trim(campaign) LIKE '%ActivePro' then 'Promo'
+when trim(campaign) LIKE '%SuperActivePro' then 'Promo'
 else null
 end as strategy_vw
 from spectrum.selligent_daily_import)
