@@ -76,7 +76,7 @@ sum(daily_import.delivered) as delivered_count,
 sum(daily_import.bouncecount) as bounce_count,
 sum(daily_import.unique_opens) as unique_open_count,
 sum(daily_import.unique_clicks) as unique_click_count,
-max(daily_import.sent_dt) as reported_date
+max(daily_import.report_date) as reported_date
  from spectrum.selligent_daily_import daily_import left join strategic_vw_func
 on daily_import.campaign=strategic_vw_func.campaign
 and daily_import.sent_dt=strategic_vw_func.sent_dt
