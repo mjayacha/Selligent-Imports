@@ -1,0 +1,22 @@
+CREATE EXTERNAL TABLE spectrum.selligent_daily_import(
+ campaign varchar(4000)
+,mail_name varchar(4000)
+,sent_dt varchar(4000)
+,activity_dt varchar(4000)
+, sent int
+, delivered int
+, bouncecount int
+, opens int
+, clicks int
+, unique_opens int
+, unique_clicks int
+,report_date varchar(4000)
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES ( 'quoteChar'='"',
+'separatorChar'=',',
+'serialization.format'='1')
+STORED AS INPUTFORMAT 'org.apache.hadoop.mapred.TextInputFormat' OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION 's3://build-s3-transfer/Selligent/build-s3-transfer'
+table properties ('skip.header.line.count'='1')
+;
